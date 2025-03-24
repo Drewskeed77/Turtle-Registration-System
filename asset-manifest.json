@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Turtle-Registration-System/static/css/main.992138e9.css",
-    "main.js": "/Turtle-Registration-System/static/js/main.71ba8ff2.js",
+    "main.js": "/Turtle-Registration-System/static/js/main.91cff6cf.js",
     "static/js/453.ed3810f9.chunk.js": "/Turtle-Registration-System/static/js/453.ed3810f9.chunk.js",
     "static/media/turtle-bg.jpg": "/Turtle-Registration-System/static/media/turtle-bg.68d5e236067fe80464b9.jpg",
     "index.html": "/Turtle-Registration-System/index.html",
     "main.992138e9.css.map": "/Turtle-Registration-System/static/css/main.992138e9.css.map",
-    "main.71ba8ff2.js.map": "/Turtle-Registration-System/static/js/main.71ba8ff2.js.map",
+    "main.91cff6cf.js.map": "/Turtle-Registration-System/static/js/main.91cff6cf.js.map",
     "453.ed3810f9.chunk.js.map": "/Turtle-Registration-System/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.992138e9.css",
-    "static/js/main.71ba8ff2.js"
+    "static/js/main.91cff6cf.js"
   ]
 }
