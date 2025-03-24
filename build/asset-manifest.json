@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.992138e9.css",
+    "main.js": "/static/js/main.e4564201.js",
+    "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
+    "static/media/turtle-bg.jpg": "/static/media/turtle-bg.68d5e236067fe80464b9.jpg",
+    "index.html": "/index.html",
+    "main.992138e9.css.map": "/static/css/main.992138e9.css.map",
+    "main.e4564201.js.map": "/static/js/main.e4564201.js.map",
+    "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.992138e9.css",
+    "static/js/main.e4564201.js"
+  ]
+}
