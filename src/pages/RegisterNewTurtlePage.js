@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AccountCenter from "../components/AccountCenter";
-import Topbar from "../components/Topbar";
-import Footer from "../components/Footer";
-import Logout from "../components/Logout";
+import Layout from "../components/Layout/Layout";
 
 export default function RegisterNewTurtlePage() {
     const navigate = useNavigate();
@@ -34,11 +31,9 @@ export default function RegisterNewTurtlePage() {
         }
 
         try {
-            const response = await fetch("http://localhost/api/index.php", {
+            const response = await fetch(process.env.REACT_APP_API_URL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     action: "addTurtle",
                     owner_id: user.user_id,
@@ -66,56 +61,58 @@ export default function RegisterNewTurtlePage() {
     };
 
     return (
-        <>
-            <Topbar children={<AccountCenter comp1={<Logout />} />} />
-            <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
-                <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">Register New Turtle</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Layout>
+            <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-8 mt-10">
+                <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Register New Turtle</h2>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name & Species */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-gray-700">Name</label>
+                            <label className="block text-gray-700 font-medium">Name</label>
                             <input
                                 type="text"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border rounded"
+                                className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-[#4FA984] focus:outline-none"
                             />
                         </div>
                         <div>
-                            <label className="block text-gray-700">Species</label>
+                            <label className="block text-gray-700 font-medium">Species</label>
                             <input
                                 type="text"
                                 name="species"
                                 value={formData.species}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border rounded"
+                                className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-[#4FA984] focus:outline-none"
                             />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Birth Date & Gender */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-gray-700">Birth Date</label>
+                            <label className="block text-gray-700 font-medium">Birth Date</label>
                             <input
                                 type="date"
                                 name="birth_date"
                                 value={formData.birth_date}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border rounded"
+                                className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-[#4FA984] focus:outline-none"
                             />
                         </div>
                         <div>
-                            <label className="block text-gray-700">Gender</label>
+                            <label className="block text-gray-700 font-medium">Gender</label>
                             <select
                                 name="gender"
                                 value={formData.gender}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border rounded"
+                                className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-[#4FA984] focus:outline-none"
                             >
                                 <option value="">Select Gender</option>
                                 <option value="Male">Male</option>
@@ -124,26 +121,29 @@ export default function RegisterNewTurtlePage() {
                         </div>
                     </div>
 
+                    {/* File Upload */}
                     <div>
-                        <label className="block text-gray-700">Image</label>
+                        <label className="block text-gray-700 font-medium">Upload Image</label>
                         <input
                             type="file"
                             name="image"
                             value={formData.image}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded"
+                            className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-[#4FA984] focus:outline-none bg-gray-100 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#4FA984] file:text-white hover:file:bg-green-700"
                         />
                     </div>
 
-
+                    {/* Submit Button */}
                     <div className="text-center">
-                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <button 
+                            type="submit" 
+                            className="w-full md:w-auto bg-[#93E9BE] hover:bg-[#72c7a0] text-white px-6 py-3 rounded-lg font-semibold transition duration-300"
+                        >
                             Register Turtle
                         </button>
                     </div>
                 </form>
             </div>
-            <Footer />
-        </>
+        </Layout>
     );
 }

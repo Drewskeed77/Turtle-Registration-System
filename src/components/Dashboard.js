@@ -15,7 +15,7 @@ export default function Dashboard() {
 
     const fetchTurtles = async (user_id) => {
         try {
-            const response = await fetch("http://localhost/api/index.php", {
+            const response = await fetch(process.env.REACT_APP_API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "getUserTurtles", user_id }),
@@ -33,20 +33,25 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="mx-16 my-16">
-            <div className="my-12">
-                <button className="px-8 py-2 rounded-t-md bg-slate-300">
+        <div className="max-w-6xl mx-auto px-4 py-10">
+            {/* Header Section */}
+            <div className="text-center mb-6">
+                <h1 className="text-2xl font-semibold text-gray-700">
                     Your Turtles
-                </button>
-                <div className="bg-slate-300 max-h-[800px] overflow-y-auto scrollbar-hide">
-                    {turtles.length > 0 ? (
-                        turtles.map((turtle) => (
+                </h1>
+            </div>
+
+            {/* Turtles List */}
+            <div className="bg-white rounded-lg shadow-lg p-6 max-h-[800px] overflow-y-auto scrollbar-hide">
+                {turtles.length > 0 ? (
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+                        {turtles.map((turtle) => (
                             <TurtleCard key={turtle.turtle_id} turtle={turtle} />
-                        ))
-                    ) : (
-                        <p className="p-4">No turtles found.</p>
-                    )}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-gray-600">No turtles found.</p>
+                )}
             </div>
         </div>
     );

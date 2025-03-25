@@ -5,14 +5,14 @@ import SignUpBtn from "./SignUpBtn";
 export default function AccountCenter() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // ✅ Check if user is logged in on component mount
+    // Check if user is logged in on component mount
     useEffect(() => {
         const user = sessionStorage.getItem("user");
         setIsAuthenticated(!!user); // Convert to boolean
     }, []);
 
     const handleLogout = () => {
-        sessionStorage.clear(); // ✅ Completely remove all sessionStorage data
+        sessionStorage.clear(); // Completely remove all sessionStorage data
         setIsAuthenticated(false);
         window.location.href = "/"; // Redirect to home after logout
     };

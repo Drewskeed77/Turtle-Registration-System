@@ -1,17 +1,17 @@
-import logo from "../logo.jpg"
+import { Link } from "react-router-dom";
+import AccountCenter from "./AccountCenter";
+import logo from "../logo.png"
 
-export default function Topbar({children}) {
+export default function Topbar() {
     return (
-      <div className="shrink-0">
-        <nav className="w-full flex justify-between gap-8 py-4 px-8 items-center">
-          <div className="nav-logo">
-            <a href="./">
-              <img className="flex-shrink-0" src={logo} alt="Site Logo" width={64} height={64} />
-            </a>
-          </div>
-          {children}
-        </nav>
-        <hr></hr>
-      </div>
+        <div className="w-full bg-[#4FA984] flex justify-between items-center p-4 text-white shadow-md">
+            {/* Logo as an Image Link */}
+            <Link to="/" className="flex items-center">
+                <img src={logo} alt="Turtle System Logo" className="h-10 w-auto" />
+            </Link>
+
+            {/* Account Center (Login/Logout) */}
+            <AccountCenter />
+        </div>
     );
-  }
+}

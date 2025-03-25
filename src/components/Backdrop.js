@@ -1,4 +1,4 @@
-import backdropImg from '../turtle-bg.jpg';
+import backdropImg from '../turtle-bg.webp';
 
 export default function Backdrop() {
     return (
